@@ -1,0 +1,9 @@
+{% if '://' in record[column.options.field] %}
+<a href="{{ record[column.options.field] }}" target="_blank">
+    {{ record[column.options.field] }}
+</a>
+{% else %}
+<a href="{{ record[column.options.field] }}" target="_blank">
+    {{ record[column.options.field] }}
+</a>
+{% endif %}

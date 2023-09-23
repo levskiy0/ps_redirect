@@ -1,0 +1,49 @@
+services:
+  _defaults:
+    public: true
+
+  prestashop.module.ps_redirect.grid.rules_definition_factory:
+    class: 'PrestaShop\Module\Ps_Redirect\Grid\RulesDefinitionFactory'
+    parent: 'prestashop.core.grid.definition.factory.abstract_grid_definition'
+    public: true
+
+  prestashop.module.ps_redirect.grid.rules_query_builder:
+    class: 'PrestaShop\Module\Ps_Redirect\Grid\RulesQueryBuilder'
+    parent: 'prestashop.core.grid.abstract_query_builder'
+    public: true
+
+  prestashop.module.ps_redirect.grid.rules_data_factory:
+    class: 'PrestaShop\PrestaShop\Core\Grid\Data\Factory\DoctrineGridDataFactory'
+    arguments:
+      - '@prestashop.module.ps_redirect.grid.rules_query_builder'
+      - '@prestashop.core.hook.dispatcher'
+      - '@prestashop.core.grid.query.doctrine_query_parser'
+      - 'rules'
+
+  prestashop.module.ps_redirect.grid.rules_grid_factory:
+    class: 'PrestaShop\PrestaShop\Core\Grid\GridFactory'
+    arguments:
+      - '@prestashop.module.ps_redirect.grid.rules_definition_factory'
+      - '@prestashop.module.ps_redirect.grid.rules_data_factory'
+      - '@prestashop.core.grid.filter.form_factory'
+      - '@prestashop.core.hook.dispatcher'
+
+  prestashop.module.ps_redirect.form.rule_form_provider:
+    class: PrestaShop\Module\Ps_Redirect\Form\RuleFormDataProvider
+
+  prestashop.module.ps_redirect.form.rule_form_type:
+    class: PrestaShop\Module\Ps_Redirect\Form\RuleFormType
+    parent: 'form.type.translatable.aware'
+    public: true
+    tags:
+      - { name: form.type }
+
+  prestashop.module.ps_redirect.form.rule_form_handler:
+    class: 'PrestaShop\PrestaShop\Core\Form\FormHandler'
+    arguments:
+      $formBuilder: '@=service("form.factory").createBuilder()'
+      $hookDispatcher: '@prestashop.core.hook.dispatcher'
+      $formDataProvider: '@prestashop.module.ps_redirect.form.rule_form_provider'
+      $formTypes:
+        'rule_form': 'PrestaShop\Module\Ps_Redirect\Form\RuleFormType'
+      $hookName: 'AdminRedirect'

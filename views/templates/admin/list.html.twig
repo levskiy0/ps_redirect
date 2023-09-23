@@ -1,0 +1,12 @@
+{% extends '@PrestaShop/Admin/layout.html.twig' %}
+{% trans_default_domain "Admin.Design.Feature" %}
+
+{% block content %}
+    {{ include('@PrestaShop/Admin/Common/Grid/grid_panel.html.twig', {'grid': rulesGrid }) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('../modules/ps_redirect/views/public/grid.bundle.js') }}"></script>
+{% endblock %}

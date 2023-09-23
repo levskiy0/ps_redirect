@@ -1,0 +1,43 @@
+{% extends '@PrestaShop/Admin/layout.html.twig' %}
+{% trans_default_domain "Admin.Design.Feature" %}
+
+{% block content %}
+    {% if ruleForm.vars.data.rule_form.rule_id is defined and ruleForm.vars.data.rule_form.rule_id is not null %}
+        {% set formAction = url('admin_ps_redirect_edit_process', {'ruleId': ruleForm.vars.data.rule_form.rule_id}) %}
+    {% else %}
+        {% set formAction = url('admin_ps_redirect_create_process') %}
+    {% endif %}
+    {{ form_start(ruleForm, {'action': formAction, 'attr': {'class': 'form', 'id': 'rule_form'}}) }}
+    <div class="row justify-content-center">
+        {% block rule_form %}
+            <div class="col-xl-10">
+                <div class="card">
+                    <h3 class="card-header">
+                        <i class="material-icons">mode_edit</i>
+                        {% if ruleForm.vars.data.rule_form.rule_id is defined and ruleForm.vars.data.rule_form.rule_id is not null %}
+                            {{ 'Edit the rule'|trans({}, 'Modules.Ps_Redirect.Admin') }}
+                        {% else %}
+                            {{ 'New rule'|trans({}, 'Modules.Ps_Redirect.Admin') }}
+                        {% endif %}
+                    </h3>
+                    <div class="card-block row">
+                        <div class="card-text m-auto w-75">
+                            {{ form_row(ruleForm.rule_form.rule_id) }}
+                            {{ form_row(ruleForm.rule_form.active) }}
+                            {{ form_row(ruleForm.rule_form.strategy) }}
+                            {{ form_row(ruleForm.rule_form.url_from) }}
+                            {{ form_row(ruleForm.rule_form.url_to) }}
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between">
+                            <a href="{{ url('admin_ps_redirect_list') }}" class="btn btn-secondary">{{ 'Cancel'|trans({}, 'Admin.Actions') }}</a>
+                            <button class="btn btn-primary">{{ 'Save'|trans({}, 'Admin.Actions') }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    </div>
+    {{ form_end(ruleForm) }}
+{% endblock %}

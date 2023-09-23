@@ -1,0 +1,80 @@
+admin_ps_redirect_list:
+  path: /ps-redirect/list
+  methods: [GET]
+  defaults:
+    _controller: 'PrestaShop\Module\Ps_Redirect\Controller\Admin\RedirectController::listAction'
+    _legacy_controller: AdminRedirectWidget
+    _legacy_link: AdminRedirectWidget
+
+admin_ps_redirect_search:
+  path: /ps-redirect/list
+  methods: [POST]
+  defaults:
+    _controller: 'PrestaShop\Module\Ps_Redirect\Controller\Admin\RedirectController::searchAction'
+    redirectRoute: admin_ps_redirect_list
+    _legacy_controller: AdminRedirectWidget
+    _legacy_link: AdminRedirectWidget:search
+
+admin_ps_redirect_create:
+  path: /ps-redirect/create
+  methods: [GET]
+  defaults:
+    _controller: 'PrestaShop\Module\Ps_Redirect\Controller\Admin\RedirectController::createAction'
+    _legacy_controller: AdminRedirectWidget
+
+admin_ps_redirect_edit:
+  path: /ps-redirect/edit/{ruleId}
+  methods: [GET]
+  defaults:
+    _controller: 'PrestaShop\Module\Ps_Redirect\Controller\Admin\RedirectController::editAction'
+    _legacy_controller: AdminRedirectWidget
+
+admin_ps_redirect_toggle_status:
+  path: /ps-redirect/toggle/{ruleId}
+  methods: [POST]
+  defaults:
+    _controller: 'PrestaShop\Module\Ps_Redirect\Controller\Admin\RedirectController::toggleStatusAction'
+    _legacy_controller: AdminRedirectWidget
+
+admin_ps_redirect_delete:
+  path: /ps-redirect/delete/{ruleId}
+  methods: [POST]
+  defaults:
+    _controller: 'PrestaShop\Module\Ps_Redirect\Controller\Admin\RedirectController::deleteAction'
+    _legacy_controller: AdminRedirectWidget
+
+admin_ps_redirect_create_process:
+  path: /ps-redirect/create
+  methods: [POST]
+  defaults:
+    _controller: 'PrestaShop\Module\Ps_Redirect\Controller\Admin\RedirectController::createProcessAction'
+    _legacy_controller: AdminRedirectWidget
+
+admin_ps_redirect_edit_process:
+  path: /ps-redirect/edit/{ruleId}
+  methods: [POST]
+  defaults:
+    _controller: 'PrestaShop\Module\Ps_Redirect\Controller\Admin\RedirectController::editProcessAction'
+    _legacy_controller: AdminRedirectWidget
+
+admin_ps_redirect_bulk_enable_status:
+  path: /ps-redirect/bulk/status/enable
+  methods: [POST]
+  defaults:
+    _controller: 'PrestaShop\Module\Ps_Redirect\Controller\Admin\RedirectController::bulkEnableStatusAction'
+    _legacy_controller: AdminRedirectWidget
+
+admin_ps_redirect_bulk_disable_status:
+  path: /ps-redirect/bulk/status/disable
+  methods: [POST]
+  defaults:
+    _controller: 'PrestaShop\Module\Ps_Redirect\Controller\Admin\RedirectController::bulkDisableStatusAction'
+    _legacy_controller: AdminRedirectWidget
+
+
+admin_ps_redirect_bulk_delete:
+  path: /ps-redirect/bulk/delete
+  methods: [POST]
+  defaults:
+    _controller: 'PrestaShop\Module\Ps_Redirect\Controller\Admin\RedirectController::bulkDeleteAction'
+    _legacy_controller: AdminRedirectWidget

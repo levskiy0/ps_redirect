@@ -1,0 +1,24 @@
+{
+  "name": "prestashop/ps_redirect",
+  "license": "AFL-3.0",
+  "authors": [
+    {
+      "name": "owles",
+      "email": "40x.Pro@gmail.com"
+    },
+    {
+      "name": "github.com/owles"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "PrestaShop\\Module\\Ps_Redirect\\": "src/"
+    },
+    "config": {
+      "prepend-autoloader": false
+    },
+    "type": "prestashop-module"
+  },
+  "require": {
+  }
+}
