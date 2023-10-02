@@ -59,22 +59,21 @@ admin_ps_redirect_edit_process:
 
 admin_ps_redirect_bulk_enable_status:
   path: /ps-redirect/bulk/status/enable
-  methods: [POST]
+  methods: [POST,GET]
   defaults:
     _controller: 'PrestaShop\Module\Ps_Redirect\Controller\Admin\RedirectController::bulkEnableStatusAction'
     _legacy_controller: AdminRedirectWidget
 
 admin_ps_redirect_bulk_disable_status:
   path: /ps-redirect/bulk/status/disable
-  methods: [POST]
+  methods: [POST,GET]
   defaults:
     _controller: 'PrestaShop\Module\Ps_Redirect\Controller\Admin\RedirectController::bulkDisableStatusAction'
     _legacy_controller: AdminRedirectWidget
 
-
 admin_ps_redirect_bulk_delete:
   path: /ps-redirect/bulk/delete
-  methods: [POST]
+  methods: [POST,GET]
   defaults:
     _controller: 'PrestaShop\Module\Ps_Redirect\Controller\Admin\RedirectController::bulkDeleteAction'
     _legacy_controller: AdminRedirectWidget

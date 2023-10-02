@@ -20,9 +20,9 @@ $(() => {
     grid.addExtension(new LinkRowActionExtension());
     grid.addExtension(new SubmitRowActionExtension());
     grid.addExtension(new ReloadListExtension());
-    grid.addExtension(new FiltersResetExtension());
     grid.addExtension(new SortingExtension());
     grid.addExtension(new AsyncToggleColumnExtension());
+    grid.addExtension(new FiltersResetExtension());
     grid.addExtension(new FiltersSubmitButtonEnablerExtension());
     grid.addExtension(new BulkActionCheckboxExtension());
   });

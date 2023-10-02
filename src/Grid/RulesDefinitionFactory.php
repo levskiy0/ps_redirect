@@ -27,7 +27,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 final class RulesDefinitionFactory extends AbstractFilterableGridDefinitionFactory
 {
 
-    const GRID_ID = 'rules';
+    const GRID_ID = 'ps_redirect-rules';
 
     protected function getId()
     {
@@ -70,7 +70,8 @@ final class RulesDefinitionFactory extends AbstractFilterableGridDefinitionFacto
                 ->setOptions([
                     'field' => 'strategy',
                 ])
-            )->add((new ToggleColumn('active'))
+            )
+            ->add((new ToggleColumn('active'))
                 ->setName($this->trans('Is Active', [], 'Admin.Global'))
                 ->setOptions([
                     'field' => 'active',

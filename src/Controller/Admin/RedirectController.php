@@ -77,7 +77,7 @@ class RedirectController extends FrameworkBundleAdminController
     {
         if (Db::getInstance()->update(
             'redirect_rules', ['active' => true],
-            'rule_id in (' . implode(',', $request->get('rules_bulk')) . ')'
+            'rule_id in (' . implode(',', $request->get('ps_redirect-rules_bulk', [])) . ')'
         )) {
             $this->addFlash('success', $this->trans('Status enabled successful.', 'Admin.Notifications.Success'));
         }
@@ -89,7 +89,7 @@ class RedirectController extends FrameworkBundleAdminController
     {
         if (Db::getInstance()->update(
             'redirect_rules', ['active' => false],
-            'rule_id in (' . implode(',', $request->get('rules_bulk')) . ')'
+            'rule_id in (' . implode(',', $request->get('ps_redirect-rules_bulk' [])) . ')'
         )) {
             $this->addFlash('success', $this->trans('Status disable successful.', 'Admin.Notifications.Success'));
         }
@@ -102,7 +102,7 @@ class RedirectController extends FrameworkBundleAdminController
     {
         if (Db::getInstance()->delete(
             'redirect_rules',
-            'rule_id in (' . implode(',', $request->get('rules_bulk')) . ')'
+            'rule_id in (' . implode(',', $request->get('ps_redirect-rules_bulk', [])) . ')'
         )) {
             $this->addFlash('success', $this->trans('Rules deleted successful.', 'Admin.Notifications.Success'));
         }
